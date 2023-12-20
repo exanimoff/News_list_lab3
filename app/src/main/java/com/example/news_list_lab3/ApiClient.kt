@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    const val BASE_URL = "https://newsdata.io/"
+    const val BASE_URL = "https://newsdata.io/api/"
     const val API_KEY = "pub_35052422f7e4cce367c9a1f86af9c5a79e2d4"
 
 
@@ -18,4 +18,7 @@ object ApiClient {
         .build()
 
     val apiService: ApiService = retrofit.create(ApiService::class.java)
+
+
+
 }

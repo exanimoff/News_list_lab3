@@ -5,10 +5,10 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("your/api/endpoint")
+    @GET("1/news")
     fun getNews(
         @Query("q") query: String,
-        @Query("apiKey") apiKey: String = ApiClient.API_KEY
+        @Query("apikey") apiKey: String = ApiClient.API_KEY
     ): Call<NewsResponse>
 }
 

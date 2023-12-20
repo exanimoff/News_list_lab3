@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class NewsAdapter(private val newsList: List<News>) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(private var newsList: List<NewsArticle>) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.news_item, parent, false)
@@ -22,11 +22,16 @@ class NewsAdapter(private val newsList: List<News>) : RecyclerView.Adapter<NewsA
         return newsList.size
     }
 
+    fun setData(newNewsList: List<NewsArticle>) {
+        newsList = newNewsList
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
         private val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
 
-        fun bind(news: News) {
+        fun bind(news: NewsArticle) {
             titleTextView.text = news.title
             descriptionTextView.text = news.description
         }
